@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<h1>JS Calculator</h1>
+		Number 1<br>
+		<input id="num1" type="text" name="num1"><br>
+		Number 2<br>
+		<input id="num2" type="text" name="num2"><br>
+		Operate way?<br>
+		<input id="operate way" type="text" name="operate way"><br>
+		<input type="button" value="Add" onclick="calculate(this)"><br>
+		Result = 
+        <p id = "result" name = "result"></p>
+
+	</form>
+    <script type="text/javascript">
+		
+		function calculate(){
+			var a = 0;
+		    var b = document.getElementById("num1").value;
+		    var c = document.getElementById("num2").value;
+		    var d = document.getElementById("operate way").value;
+			if(d === "+"){
+				a = parseInt(b)+parseInt(c);
+			}else if(d === "-"){
+				a = parseInt(b)-parseInt(c);
+			}else if(d === "*"){
+				a = parseInt(b)*parseInt(c);
+			}else if(d === "/"){
+				a = parseInt(b)/parseInt(c);
+			}
+			document.getElementById("result").innerHTML = a;
+			return false;
+
+		}
+	</script>
+</body>	
+
+
+</html>

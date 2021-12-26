@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div  id="block">
+		<h1>Guessing Game</h1>
+		<form>
+			<label>Your Guess(1 ~ 100)</label><br>
+			<input id="input" type="number" name="input">
+		</form>
+		<input id="play" type="button" value="play" onclick="guess()">
+		<table id="result">
+			<tr>
+				<th>Result</th>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		var random = Math.floor(Math.random()*100+1);
+		var min = 1;
+		var max = 100;
+
+		function guess(){
+			input = document.getElementById("input").value;
+			if(input == random){
+				alert("Bingooooo!!!");
+				location.reload();
+			}
+			while(input != random){
+				if(input != random){
+				    if(input > random && input < max){
+					    max = input;
+				    }else if(input < random && input > min){
+                        min = input;
+				    }
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+                var text = document.createTextNode(min+"~"+max);
+                td.appendChild(text);
+                tr.appendChild(td);
+                document.getElementById("result").appendChild(tr);
+                break;
+			}
+		    }
+		}
+	</script>
+
+</body>
+</html>
